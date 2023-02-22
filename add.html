@@ -1,0 +1,90 @@
+<html>  
+
+    <head><title>Table</title>
+    <style>
+        .main{
+	text-align: center; /*让div内部文字居中*/
+	background-color: #fff;
+	border-radius: 20px;
+	width: 300px;
+	height: 350px;
+	margin: auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	right: 0;
+	bottom: 0;
+}
+
+.style{
+ width: 800px;
+height: 300px;
+}
+    </style>
+    </head>  
+
+    <body>  
+        <div class="main">
+             <table border="1" class="style">  
+
+            <thead>  
+ 
+                <tr>  
+
+                    <td>名称</td>  
+
+                    <td>入库记录</td>  
+
+                    <td> </td>  
+
+                </tr>  
+
+            <thead>  
+
+            <tbody id="tb">  
+
+                <tr id="1st">  
+
+                    <td>面包</td>  
+
+                    <td>+15</td>  
+
+                    <td><input type="button" value="Add" onclick="add()">   
+
+                    <input type="button" value="Del" onclick="del(this)"></td>  
+
+                </tr>  
+
+            </tbody>  
+
+        </table> 
+        </div> 
+    </body>  
+
+</html>  
+
+<script>  
+
+    function add() {  
+
+        var trObj = document.createElement("tr");  
+
+        trObj.id = new Date().getTime();  
+
+        trObj.innerHTML = "<td><input name='firstName'/></td><td><input name='lastName'/></td><td><input type='button' value='Add' onclick='add()'> <input type='button' value='Del' onclick='del(this)'></td>";  
+
+        document.getElementById("tb").appendChild(trObj);  
+
+    }  
+
+    function del(obj) {  
+
+        var trId = obj.parentNode.parentNode.id;  
+
+        var trObj = document.getElementById(trId);  
+
+        document.getElementById("tb").removeChild(trObj);  
+
+    }  
+
+</script>
